@@ -1,0 +1,19 @@
+version: '2'
+services:
+  db:
+    restart: always
+    image: postgres:9.4
+    environment:
+      - DB_PASS=secretpassword
+
+  wildfly:
+
+    build: .
+    depends_on:
+      - db
+    restart: always
+    image: shiftplanner
+    ports:
+      - "8080:8080"
+      - "9990:9990"
+
