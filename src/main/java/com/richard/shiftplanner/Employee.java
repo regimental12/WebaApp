@@ -6,27 +6,49 @@ package com.richard.shiftplanner;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import java.util.Set;
 
-
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 @Data
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@RequiredArgsConstructor
 public class Employee
 {
     private @Id @GeneratedValue Long id;
-    private String firstName;
-    private String lastName;
-    private String description;
+    @NonNull private String firstName;
+    @NonNull private String lastName;
+    @NonNull private String description;
+    @NonNull private String umm;
 
-    /*public Employee(String firstName , String lastName , String description)
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "Employee Shifts" , joinColumns = @JoinColumn(name = "Employee_id" , referencedColumnName = "id"),
+    inverseJoinColumns = @JoinColumn(name = "Shift_id" , referencedColumnName = "id"))
+    private Set<Shift> shifts;
+
+
+
+
+    /*@Override
+    public String toString()
     {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.description = description;
+        String info = "";
+        JSONObject jsonInfo = new JSONObject();
+        jsonInfo.put("name", this.firstName);
+        JSONArray subArray = new JSONArray();
+        this.shifts.forEach(sub -> {
+            JSONObject subJson = new JSONObject();
+            subJson.put("name", sub.getfirstname());
+            subArray.put(subJson);
+        });
+        jsonInfo.put("subjects", subArray);
+        info = jsonInfo.toString();
+        return info;
     }*/
 }

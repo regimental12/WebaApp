@@ -238,6 +238,7 @@ class EmployeeList extends React.Component {
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Description</th>
+                        <th>umm</th>
                         <th></th>
                     </tr>
                     {employees}
@@ -270,6 +271,7 @@ class Employee extends React.Component {
                 <td>{this.props.employee.firstName}</td>
                 <td>{this.props.employee.lastName}</td>
                 <td>{this.props.employee.description}</td>
+                <td>{this.props.employee.umm}</td>
                 <td>
                     <button onClick={this.handleDelete}>Delete</button>
                 </td>
