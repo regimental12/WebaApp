@@ -19,12 +19,12 @@ import java.util.Set;
 public class Shift
 {
     private @Id @GeneratedValue Long id;
-    @NonNull private String day;
-    @NonNull private String time;
+    @NonNull private String shiftday;
+    @NonNull private String shifttime;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "student_subject", joinColumns = @JoinColumn(name = "student_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "subject_id", referencedColumnName = "id"))
+    @JoinTable(name = "Employee_Shift", joinColumns = @JoinColumn(name = "Employee_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "Shift_id", referencedColumnName = "id"))
     private Set<Employee> employee;
 
     /*@Override

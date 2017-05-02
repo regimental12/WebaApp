@@ -281,7 +281,55 @@ class Employee extends React.Component {
 }
 // end::employee[]
 
-ReactDOM.render(
-    <App />,
-    document.getElementById('react')
-)
+class Shiftapp extends React.Component
+{
+    constructor(props) {
+        super(props);
+        this.state = {shifts: []};
+    }
+
+    componentDidMount() {
+        client({method: 'GET', path: './api/shifts'}).done(response => {
+            this.setState({shifts: response.entity._embedded.shifts});
+        });
+    }
+
+    render() {
+        return (
+            <ShiftList shifts={this.state.shifts}/>
+        )
+    }
+}
+
+class ShiftList extends React.Component{
+    render() {
+        var shiftsvar = this.props.shifts.map(shift =>
+            <Shift key={shift._links.self.href} shift={shift}/>
+        );
+        return (
+            <table>
+                <tbody>
+                <tr>
+                    <th>Day</th>
+                    <th>Time</th>
+                </tr>
+                {shiftsvar}
+                </tbody>
+            </table>
+        )
+    }
+}
+
+class Shift extends React.Component{
+    render() {
+        return (
+            <tr>
+                <td>{this.props.shifts.shiftday}</td>
+                <td>{this.props.shifts.shifttime}</td>
+            </tr>
+        )
+    }
+}
+
+ReactDOM.render(<App />, document.getElementById('react'))
+ReactDOM.render(<Shiftapp /> , document.getElementById('react2'))
