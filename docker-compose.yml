@@ -5,13 +5,13 @@ services:
     restart: always
     image: postgres:9.4
     environment:
-      - DB_PASS=secretpassword
+      - DB_PASS=password
     ports:
         - "5433:5432"  
 
   wildfly:
     environment:
-      - KEYCLOAK_USER=adam
+      - KEYCLOAK_USER=richard
       - KEYCLOAK_PASSWORD=password
 
     build: .
