@@ -17,7 +17,8 @@ hopefully this shows up when you navigate the api.
 
 Have WildFly and a postgres db in seperate containers on Docker.
 
-API-MAN does work with rate limiting and authentication but gives a http 500 error but it is not persistant so needs configuring each time the server restarts, Same goes for Keycloak.
+API-MAN does work with rate limiting and authentication but gives a http 500 error once credentials are entered.
+It is not persistant so needs configuring each time the server restarts, Same goes for Keycloak.
 
 No unit testing.
 
