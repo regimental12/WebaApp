@@ -8,11 +8,11 @@
 - $ docker compose up.
 
 
-You can view the results at [Link to Shiftplanner](http://localhost:8080/shiftplanner-0.1/)
+Once installed and running you can view the results at [Link to Shiftplanner](http://localhost:8080/shiftplanner-0.1/)
 
-Got a the basic hypermedia controls working. These can be tested [Here](http://localhost:8080/shiftplanner-0.1/api)
+Got the basic hypermedia controls working. These can be tested [Here](http://localhost:8080/shiftplanner-0.1/api)
 
-A mamy to many relationship is configured in the back end but I cant get it to show up on the web interface. Again
+A mamy to many relationship is configured in the back end but I can't get it to show up on the web interface. Again
 hopefully this shows up when you navigate the api.
 
 Have WildFly and a postgres db in seperate containers on Docker.
