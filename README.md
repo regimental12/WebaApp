@@ -8,9 +8,9 @@
 - $ docker compose up.
 
 
-You can view the results at [localhost8080/shiftplanner-0.1/](Link to Shiftplanner)
+You can view the results at [Link to Shiftplanner](localhost8080/shiftplanner-0.1/)
 
-Got a the basic hypermedia controls working. These can be tested [localhost8080/shiftplanner-0.1/api](Here)
+Got a the basic hypermedia controls working. These can be tested [Here](localhost8080/shiftplanner-0.1/api)
 
 A mamy to many relationship is configured in the back end but I cant get it to show up on the web interface. Again
 hopefully this shows up when you navigate the api.
